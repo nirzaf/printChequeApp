@@ -9,6 +9,8 @@ package data;
 import java.util.ArrayList;
 import business.Login;
 import java.sql.*;
+import java.sql.Connection;   
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 /**
  *
@@ -30,7 +32,7 @@ public class LoginDAO implements DataAccess{
     public int add(Object ob) {
          int result=0;
         Login lg=(Login)ob;
-        String insert="insert into Login(userID,password,uStatus) values(?,?,?)";
+        String insert="insert into tbl_Login(userID,password,uStatus) values(?,?,?)";
         try{
             PreparedStatement ps=cn.prepareStatement(insert);
             ps.setString(1, lg.getUserID());
